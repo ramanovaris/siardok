@@ -600,7 +600,7 @@
 					type: "GET",
 					dataType: "JSON",
 					success: function(data) {
-					 var fileInput = "<?php echo site_url('assets/upload/dokumen') ;?>/"+data.foto_ktp;
+					 var fileInput = "<?php echo site_url('../../simaru/assets/images') ;?>/"+data.foto_ktp;
 					 var extension = fileInput.substr((fileInput.lastIndexOf('.') +1));
 					  if (/(jpg)$/ig.test(extension)) {
 					    $('#jpg').attr('src', '<?php echo site_url('../../simaru/assets/images') ;?>/'+data.foto_ktp);
@@ -629,7 +629,7 @@
 					type: "GET",
 					dataType: "JSON",
 					success: function(data) {
-					 var fileInput = "<?php echo site_url('assets/upload/dokumen') ;?>/"+data.foto_ktp;
+					 var fileInput = "<?php echo site_url('../../simaru/assets/images') ;?>/"+data.foto_ktp;
 					 var extension = fileInput.substr((fileInput.lastIndexOf('.') +1));
 					  if (/(jpg)$/ig.test(extension)) {
 					    $('#jpg').attr('src', '<?php echo site_url('../../simaru/assets/images') ;?>/'+data.foto_karpeg);

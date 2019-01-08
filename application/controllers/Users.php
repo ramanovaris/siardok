@@ -143,7 +143,7 @@
 		}
 
 		private function _do_upload_add(){
-	        $config['upload_path']          = '../../simaru/assets/images';
+	        $config['upload_path']          = '../simaru/assets/images';
 	        $config['allowed_types']        = 'jpg|png';
 	        // $config['max_size']             = 10000; //set max size allowed in Kilobyte
 	        // $config['file_name']            = round(microtime(true) * 1000); //just milisecond timestamp fot unique name
@@ -167,7 +167,7 @@
 	    }
 
 	    private function _do_upload_add_2(){
-	        $config['upload_path']          = '../../simaru/assets/images';
+	        $config['upload_path']          = '../simaru/assets/images';
 	        $config['allowed_types']        = 'jpg|png';
 	        // $config['max_size']             = 10000; //set max size allowed in Kilobyte
 	        // $config['file_name']            = round(microtime(true) * 1000); //just milisecond timestamp fot unique name
@@ -191,7 +191,7 @@
 	    }
 
 		private function _do_upload(){
-	        $config['upload_path']          = '../../simaru/assets/images';
+	        $config['upload_path']          = '../simaru/assets/images';
 	        $config['allowed_types']        = 'jpg|png';
 	        // $config['max_size']             = 10000; //set max size allowed in Kilobyte
 	        // $config['file_name']            = round(microtime(true) * 1000); //just milisecond timestamp fot unique name
@@ -215,7 +215,7 @@
 	    }
 
 	    private function _do_upload_2(){
-	        $config['upload_path']          = '../../simaru/assets/images';
+	        $config['upload_path']          = '../simaru/assets/images';
 	        $config['allowed_types']        = 'jpg|png';
 	        // $config['max_size']             = 10000; //set max size allowed in Kilobyte
 	        // $config['file_name']            = round(microtime(true) * 1000); //just milisecond timestamp fot unique name
