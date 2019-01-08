@@ -227,6 +227,7 @@
 	            $data['error_string'][] = 'Upload error: '.$this->upload->display_errors('',''); //show ajax error
 	            $data['status'] = FALSE;
 	            echo json_encode($data);
+	            alert('error');
 	            exit();
 	        }
 	        return $this->upload->data('file_name');
