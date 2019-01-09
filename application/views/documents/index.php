@@ -533,15 +533,41 @@
 	}
 
 	function delete_modal(id){
-		$('#button_delete').attr('onclick', 'delete_document('+id+')');
-		$('#modal_delete_title').text("Are you sure?");
-        $('#modal_delete').modal('show');
+        $.ajax({
+				url: "<?php echo site_url('documents/get_name_document_for_delete/') ;?>/"+id,
+				type: "POST",
+				dataType: "JSON",
+				success: function(data) {
+					$("#text_hapus").empty();
+					htmlString = "Are you sure you want to delete <b>"+data.name_document+"</b>?"
+			        $("#text_hapus").append(htmlString);
+			        $('#modal_delete_title').text("Are you sure?");
+					$('#button_delete').attr('onclick', 'delete_document('+id+')');
+			        $('#modal_delete').modal('show');
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					alert('Error Deleting Data');
+				}
+		});
 	}
 
 	function send_document_modal(id){
-		$('#button_broadcast').attr('onclick', 'send_document('+id+')');
-		$('#modal_broadcast_title').text("Are you sure?");
-        $('#modal_broadcast').modal('show');
+        $.ajax({
+				url: "<?php echo site_url('documents/get_name_document_for_broadcast/') ;?>/"+id,
+				type: "POST",
+				dataType: "JSON",
+				success: function(data) {
+					$("#text_broadcast").empty();
+					htmlString = "Are you sure you want to broadcast document <b>"+data.name_document+"</b>?"
+			        $("#text_broadcast").append(htmlString);
+			        $('#modal_broadcast_title').text("Are you sure?");
+					$('#button_broadcast').attr('onclick', 'send_document('+id+')');
+			        $('#modal_broadcast').modal('show');
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					alert('Error Deleting Data');
+				}
+		});
 	}
 
 	function view_file_history(id_history){
@@ -1016,7 +1042,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
 			<div class="modal-body">
-				<p>Do you really want to delete these records? This process cannot be undone.</p>
+				<p id="text_hapus"></p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
@@ -1038,7 +1064,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
 			<div class="modal-body">
-				<p>Do you really want to send broadcast these records?</p>
+				<p id="text_broadcast"></p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>

@@ -286,4 +286,22 @@
 				return false;
 			}
 		}
+
+		public function get_name_document_for_delete($id_document){
+ 			$this->db->select('name_document');
+	    	$this->db->from('tbl_dokumen');
+	    	$this->db->where('id_document', $id_document);
+	    	$query = $this->db->get();
+
+	    	return $query->row_array();
+ 		}
+
+ 		public function get_name_document_for_broadcast($id_document){
+ 			$this->db->select('name_document');
+	    	$this->db->from('tbl_dokumen');
+	    	$this->db->where('id_document', $id_document);
+	    	$query = $this->db->get();
+
+	    	return $query->row_array();
+ 		}
 	}

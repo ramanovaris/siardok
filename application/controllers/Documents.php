@@ -288,4 +288,14 @@
 				echo 'not_taken';
 			}
 		}
+
+		public function get_name_document_for_delete($id_document){
+			$data = $this->documents_model->get_name_document_for_delete($id_document);
+	    	echo json_encode($data);
+		}
+
+		public function get_name_document_for_broadcast($id_document){
+			$data = $this->documents_model->get_name_document_for_broadcast($id_document);
+	    	echo json_encode($data);
+		}
 	}
