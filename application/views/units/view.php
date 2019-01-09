@@ -203,8 +203,22 @@
 	}
 
 	function delete_modal(id){
-		$('#button_delete').attr('onclick', 'delete_member('+id+')');
-        $('#modal_delete').modal('show');
+        $.ajax({
+				url: "<?php echo site_url('units/get_name_member_for_delete/') ;?>/"+id,
+				type: "POST",
+				dataType: "JSON",
+				success: function(data) {
+					$("#text_hapus").empty();
+					htmlString = "Are you sure you want to delete <b>"+data.nama+"</b>?"
+			        $("#text_hapus").append(htmlString);
+			        $('#modal_delete_title').text('Are you sure?');
+					$('#button_delete').attr('onclick', 'delete_member('+id+')');
+			        $('#modal_delete').modal('show');
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					alert('Error Deleting Data');
+				}
+		});
 	}
 </script>
 
@@ -267,7 +281,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
 			<div class="modal-body">
-				<p>Do you really want to delete these records? This process cannot be undone.</p>
+				<p id="text_hapus"></p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>

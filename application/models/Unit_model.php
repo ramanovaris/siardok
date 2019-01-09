@@ -154,4 +154,23 @@
 				return false;
 			}
  		}
+
+ 		public function get_name_unit_for_delete($id_unit){
+ 			$this->db->select('nama_unit');
+	    	$this->db->from('tbl_units');
+	    	$this->db->where('id_unit', $id_unit);
+	    	$query = $this->db->get();
+
+	    	return $query->row_array();
+ 		}
+
+ 		public function get_name_member_for_delete($id_unit){
+ 			$this->db->select('nama');
+	    	$this->db->from('tbl_units_member');
+	 		$this->db->join('user', 'user.id_user = tbl_units_member.id_user');   	
+	    	$this->db->where('tbl_units_member.id_unit_member', $id_unit);
+	    	$query = $this->db->get();
+
+	    	return $query->row_array();
+ 		}
 	}

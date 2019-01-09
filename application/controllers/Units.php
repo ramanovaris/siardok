@@ -164,4 +164,14 @@
 				echo 'not_taken';
 			}
 		}
+
+		public function get_name_unit_for_delete($id_unit){
+			$data = $this->unit_model->get_name_unit_for_delete($id_unit);
+	    	echo json_encode($data);
+		}
+
+		public function get_name_member_for_delete($id_unit){
+			$data = $this->unit_model->get_name_member_for_delete($id_unit);
+	    	echo json_encode($data);
+		}
 	}
