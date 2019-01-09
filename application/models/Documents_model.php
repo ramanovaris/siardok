@@ -7,7 +7,7 @@
 	    var $column_search = array('no_document','name_document','upload_date','document_date','expired_date','document_label','nama', 'file'); //field yang diizin untuk pencarian 
 	    var $order = array('upload_date' => 'desc'); // default order
 		
-		private $token = '614400723:AAEBYeGLOtsQXH2iR7CkM6ud7Nzvml2ZQ74';
+		private $token = '785918748:AAFmDZMCNsgouUDtkDOzAJ1fonziabxwmXk';
 
 	    private function _get_datatables_query(){
 	    	$now = date("Y-m-d");

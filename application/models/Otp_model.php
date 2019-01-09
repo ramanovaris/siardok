@@ -2,7 +2,7 @@
 
 class Otp_model extends CI_Model
 {
-    private $token = '614400723:AAEBYeGLOtsQXH2iR7CkM6ud7Nzvml2ZQ74';
+    private $token = '785918748:AAFmDZMCNsgouUDtkDOzAJ1fonziabxwmXk';
     public function __construct()
     {
         $this->load->database();
