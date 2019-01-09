@@ -413,4 +413,14 @@
 					<td>".$data['posisi']."</td>
 				  </tr>";
 	    }
+
+	    public function get_name_for_delete($id_user){
+	    	$data = $this->user_model->get_name_for_delete($id_user);
+	    	echo json_encode($data);
+	    }
+
+	    public function get_unit_for_delete($id_unit){
+	    	$data = $this->user_model->get_unit_for_delete($id_unit);
+	    	echo json_encode($data);
+	    }
 	}

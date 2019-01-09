@@ -193,4 +193,23 @@
 
 	    	return $query->row_array();
  		}
+
+ 		public function get_name_for_delete($id_user){
+ 			$this->db->select('nama');
+	    	$this->db->from('user');
+	    	$this->db->where('id_user', $id_user);
+	    	$query = $this->db->get();
+
+	    	return $query->row_array();
+ 		}
+
+ 		public function get_unit_for_delete($id_unit){
+ 			$this->db->select('nama_unit');
+	    	$this->db->from('tbl_units_member');
+	 		$this->db->join('tbl_units', 'tbl_units.id_unit = tbl_units_member.id_unit');   	
+	    	$this->db->where('tbl_units_member.id_unit_member', $id_unit);
+	    	$query = $this->db->get();
+
+	    	return $query->row_array();
+ 		}
 	}
