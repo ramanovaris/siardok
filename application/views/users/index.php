@@ -614,9 +614,11 @@
 					dataType: "JSON",
 					success: function(data) {
 					 var fileInput = "<?php echo site_url('../../simaru/assets/images') ;?>/"+data.foto_ktp;
+					 // var fileInput = "<?php echo site_url('assets/upload/dokumen/') ;?>/"+data.foto_ktp;
 					 var extension = fileInput.substr((fileInput.lastIndexOf('.') +1));
 					  if (/(jpg)$/ig.test(extension)) {
 					    $('#jpg').attr('src', '<?php echo site_url('../../simaru/assets/images') ;?>/'+data.foto_ktp);
+					    // $('#jpg').attr('src', '<?php echo site_url('assets/upload/dokumen/') ;?>/'+data.foto_ktp);
 					    $('#modal_jpg_title').text("View Photo");
                 		$('#modal_jpg').modal('show');
                 		$("#modal_jpg").css("z-index", "1500");
@@ -624,6 +626,7 @@
 					  }
 					  else if (/(png)$/ig.test(extension)) {
 						$('#png').attr('src', '<?php echo site_url('../../simaru/assets/images') ;?>/'+data.foto_ktp);
+						 // $('#png').attr('src', '<?php echo site_url('assets/upload/dokumen/') ;?>/'+data.foto_ktp);
                 		$('#modal_png_title').text("View Photo");
                 		$('#modal_png').modal('show');
                 		$("#modal_png").css("z-index", "1500");
@@ -643,9 +646,11 @@
 					dataType: "JSON",
 					success: function(data) {
 					 var fileInput = "<?php echo site_url('../../simaru/assets/images') ;?>/"+data.foto_ktp;
+					 // var fileInput = "<?php echo site_url('assets/upload/dokumen/') ;?>/"+data.foto_ktp;
 					 var extension = fileInput.substr((fileInput.lastIndexOf('.') +1));
 					  if (/(jpg)$/ig.test(extension)) {
 					    $('#jpg').attr('src', '<?php echo site_url('../../simaru/assets/images') ;?>/'+data.foto_karpeg);
+					    // $('#jpg').attr('src', '<?php echo site_url('assets/upload/dokumen/') ;?>/'+data.foto_karpeg);
 					    $('#modal_jpg_title').text("View Photo");
                 		$('#modal_jpg').modal('show');
                 		$("#modal_jpg").css("z-index", "1500");
@@ -653,6 +658,7 @@
 					  }
 					  else if (/(png)$/ig.test(extension)) {
 						$('#png').attr('src', '<?php echo site_url('../../simaru/assets/images') ;?>/'+data.foto_karpeg);
+						// $('#png').attr('src', '<?php echo site_url('assets/upload/dokumen/') ;?>/'+data.foto_karpeg);
                 		$('#modal_png_title').text("View Photo");
                 		$('#modal_png').modal('show');
                 		$("#modal_png").css("z-index", "1500");
