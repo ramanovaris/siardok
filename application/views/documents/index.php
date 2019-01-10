@@ -50,12 +50,11 @@
              
             "columnDefs": [
             { 
-                "targets": [ 0 ], 
-                "orderable": false, 
-                "width": "9%", "targets": 10,
-                // "width": "1%", "targets": 3,
-                
+                "targets": [ 7,8,9,10 ], 
+                "orderable": false,
             },
+            // { width: '10px', targets: 3},
+            { width: '60px', targets: 10},
             ],
 
 
