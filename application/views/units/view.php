@@ -46,9 +46,10 @@
              
             "columnDefs": [
             { 
-                "targets": [ 0 ], 
+                "targets": [1,2], 
                 "orderable": false, 
             },
+            { width: '700px', targets: 0},
             ],
         });   
         $('#table_id').on('draw.dt', function () {

@@ -73,9 +73,11 @@
              
             "columnDefs": [
             { 
-                "targets": [ 0 ], 
+                "targets": [ 1, 2], 
                 "orderable": false, 
             },
+            { width: '600px', targets: 0},
+            { width: '140px', targets: 1},
             ],
  
         });

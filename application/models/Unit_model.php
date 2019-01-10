@@ -3,7 +3,7 @@
 
 		var $table = 'tbl_units';
 		var $tbl_units_member = 'tbl_units_member';
-	    var $column_order = array(null, 'id_unit','nama_unit'); //field yang ada di table unit
+	    var $column_order = array('nama_unit'); //field yang ada di table unit
 	    var $column_search = array('nama_unit'); //field yang diizin untuk pencarian 
 	    var $order = array('id_unit' => 'asc'); // default order
 		
