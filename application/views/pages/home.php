@@ -92,10 +92,16 @@ $(document).ready(function(){
              
             "columnDefs": [
             { 
-                "targets": [ 0 ], 
+                "targets": [6,7], 
                 "orderable": false, 
-                "width": "10%", "targets": 0
+                // "width": "10%", "targets": 0
             },
+            { width: '100px', targets: 0},
+            { width: '120px', targets: 2},
+            { width: '70px', targets: 4},
+            { width: '50px', targets: 3},
+            { width: '30px', targets: 6},
+            { width: '30px', targets: 7},
             ],
         });
         $('#tabel_internal').on('draw.dt', function () {
@@ -119,10 +125,11 @@ $(document).ready(function(){
              
             "columnDefs": [
             { 
-                "targets": [ 0 ], 
+                "targets": [6], 
                 "orderable": false, 
-                "width": "10%", "targets": 6
+                // "width": "10%", "targets": 6
             },
+            // { width: '1000px', targets: 6},
             ],
         });
         $('#tabel_umum').on('draw.dt', function () {
@@ -146,7 +153,7 @@ $(document).ready(function(){
              
             "columnDefs": [
             { 
-                "targets": [ 0 ], 
+                "targets": [5,6], 
                 "orderable": false,
             },
             ],
