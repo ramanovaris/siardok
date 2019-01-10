@@ -51,7 +51,7 @@
              
             "columnDefs": [
             { 
-                "targets": [ 0 ], 
+                "targets": [2], 
                 "orderable": false, 
             },
             ],

@@ -3,7 +3,7 @@
 		
 		var $table = 'user';
 		var $tbl_units_member = 'tbl_units_member';
-	    var $column_order = array(null, 'id_user', 'no_ktp', 'nama', 'instansi', 'posisi', 'foto_ktp', 'foto_karpeg', 'nik', 'no_hp', 'level'); //field yang ada di table user
+	    var $column_order = array('nama', 'no_ktp', 'nik', 'foto_ktp', 'foto_karpeg', 'no_hp', 'level', 'posisi', 'instansi'); //field yang ada di table user
 	    var $column_search = array('no_ktp', 'nama', 'instansi', 'posisi', 'nik', 'no_hp', 'level'); //field yang diizin untuk pencarian 
 	    var $order = array('nama' => 'asc'); // default order
 		

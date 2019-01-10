@@ -44,11 +44,17 @@
              
             "columnDefs": [
             { 
-                "targets": [ 0 ], 
                 "orderable": false, 
+                "targets": [ 3, 4, 7, 8], 
+                
                 // "width": "9%", "targets": 4,
-                "width": "9%", "targets": 8,
+                // "width": "9%", "targets": 8,
             },
+            { width: '120px', targets: 0},
+            { width: '50px', targets: 3},
+            { width: '60px', targets: 4},
+            { width: '5px', targets: 7},
+
             ],
  
         });

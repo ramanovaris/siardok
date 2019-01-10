@@ -2,7 +2,7 @@
 	class View_units_model extends CI_Model{
 
 		var $table = 'tbl_units_member';
-	    var $column_order = array(null, 'id_user','nama', 'id_unit', 'nama_unit'); //field yang ada di table unit
+	    var $column_order = array('nama_unit', 'nama'); //field yang ada di table unit
 	    var $column_search = array('nama_unit'); //field yang diizin untuk pencarian 
 	    var $order = array('nama_unit' => 'asc'); // default order
 		
