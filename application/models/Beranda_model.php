@@ -3,7 +3,7 @@
 
 		var $table = 'tbl_dokumen';
 	    var $column_order = array('no_document','name_document','upload_date','document_date','expired_date','document_label','nama'); //field yang ada di table unit
-	    var $column_search = array('no_document','name_document','upload_date','document_date','expired_date','document_label','nama', 'file'); //field yang diizin untuk pencarian 
+	    var $column_search = array('no_document','name_document','upload_date','document_date','expired_date','document_label','nama'); //field yang diizin untuk pencarian 
 	    var $order = array('upload_date' => 'desc'); // default order
 		
 	    private function _get_datatables_query(){
