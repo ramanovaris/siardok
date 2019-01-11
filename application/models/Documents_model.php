@@ -4,7 +4,7 @@
 		var $table = 'tbl_dokumen';
 		var $tbl_unit_document = 'tbl_unit_document';
 	    var $column_order = array('no_document','name_document','upload_date','document_date','expired_date','document_label', 'versi'); //field yang ada di table unit
-	    var $column_search = array('no_document','name_document','upload_date','document_date','expired_date','document_label','nama', 'file'); //field yang diizin untuk pencarian 
+	    var $column_search = array('no_document','name_document','upload_date','document_date','expired_date','document_label', 'versi'); //field yang diizin untuk pencarian 
 	    var $order = array('upload_date' => 'desc'); // default order
 		
 		private $token = '785918748:AAFmDZMCNsgouUDtkDOzAJ1fonziabxwmXk';
