@@ -104,11 +104,11 @@
 			    success: function(response){
 			    	if (response == 'taken') {
 			    		$('#nik_edit_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> NIK already exists</span></label>');
-			    		$('#sub_button').attr("disabled", true);
+			    		$('#sub_button_edit').attr("disabled", true);
 			    	} 
 			    	else if (response == 'not_taken') {
 			    		$('#nik_edit_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> NIK is available</span></label>');
-			    		$('#sub_button').attr("disabled", false);
+			    		$('#sub_button_edit').attr("disabled", false);
 			    	}
 			    }
 			    });
@@ -157,25 +157,36 @@
 
 	  	$("#no_ktp_edit").keyup(delay(function (e) {
 		   	var no_ktp_edit = $('#no_ktp_edit').val();
+		   	var no_ktp_minLength = 16;
 		   	
 		   	if(no_ktp_edit != ''){
-			    $.ajax({
-			    url: "<?php echo base_url(); ?>users/cek_no_ktp_edit",
-			    method: "POST",
-			    data: {no_ktp_edit:no_ktp_edit},
-			    success: function(response){
-			    	if (response == 'taken') {
-			    		$('#no_ktp_edit_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> ID Card Number already exists</span></label>');
-			    		$('#sub_button').attr("disabled", true);
-			    	} 
-			    	else if (response == 'not_taken') {
-			    		$('#no_ktp_edit_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> ID Card Number is available</span></label>');
-			    		$('#sub_button').attr("disabled", false);
-			    	}
-			    }
-			    });
+		   		if (no_ktp_edit.length <= no_ktp_minLength){
+					$(".pesan-no_ktp_minlength_edit").css('display','block');
+					$('#no_ktp_edit_result').html('');
+					$('#sub_button_edit').attr("disabled", true);
+				}
+				if (no_ktp_edit.length >= no_ktp_minLength){
+				   	$.ajax({
+				    url: "<?php echo base_url(); ?>users/cek_no_ktp_edit",
+				    method: "POST",
+				    data: {no_ktp_edit:no_ktp_edit},
+					    success: function(response){
+					    	if (response == 'taken') {
+					    		$('#no_ktp_edit_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> ID Card Number already exists</span></label>');
+					    		$(".pesan-no_ktp_minlength_edit").hide();
+					    		$('#sub_button_edit').attr("disabled", true);
+					    	} 
+					    	else if (response == 'not_taken') {
+					    		$('#no_ktp_edit_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> ID Card Number is available</span></label>');
+					    		$(".pesan-no_ktp_minlength_edit").hide();
+					    		$('#sub_button_edit').attr("disabled", false);
+					    	}
+					    }
+				    });
+				 }
 		   	}
 		   	else{
+		   		$(".pesan-no_ktp_minlength_edit").hide();
 		   		$('#no_ktp_edit_result').html('');
 		   	}
 	  	},  800));
@@ -220,25 +231,36 @@
 
 	  	$("#no_hp_edit").keyup(delay(function (e) {
 		   	var no_hp_edit = $('#no_hp_edit').val();
+		   	var no_hp_minLength = 11;
 		   	
 		   	if(no_hp_edit != ''){
-			    $.ajax({
-			    url: "<?php echo base_url(); ?>users/cek_no_hp_edit",
-			    method: "POST",
-			    data: {no_hp_edit:no_hp_edit},
-			    success: function(response){
-			    	if (response == 'taken') {
-			    		$('#no_hp_edit_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> Phone Number already exists</span></label>');
-			    		$('#sub_button').attr("disabled", true);
-			    	} 
-			    	else if (response == 'not_taken') {
-			    		$('#no_hp_edit_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> Phone Number is available</span></label>');
-			    		$('#sub_button').attr("disabled", false);
-			    	}
-			    }
-			    });
+		   		if(no_hp_edit.length <= no_hp_minLength){
+					$(".pesan-no_hp_minlength_edit").css('display','block');
+					$('#no_hp_edit_result').html('');
+					$('#sub_button_edit').attr("disabled", true);
+				}
+				if (no_hp_edit.length >= no_hp_minLength){
+				   	$.ajax({
+				    url: "<?php echo base_url(); ?>users/cek_no_hp_edit",
+				    method: "POST",
+				    data: {no_hp_edit:no_hp_edit},
+				    success: function(response){
+				    	if (response == 'taken') {
+				    		$('#no_hp_edit_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> Phone Number already exists</span></label>');
+				    		$(".pesan-no_hp_minlength_edit").hide();
+				    		$('#sub_button_edit').attr("disabled", true);
+				    	} 
+				    	else if (response == 'not_taken') {
+				    		$('#no_hp_edit_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> Phone Number is available</span></label>');
+				    		$(".pesan-no_hp_minlength_edit").hide();
+				    		$('#sub_button_edit').attr("disabled", false);
+				    	}
+				    }
+				    });
+				}
 		   	}
 		   	else{
+		   		$(".pesan-no_hp_minlength_edit").hide();
 		   		$('#no_hp_edit_result').html('');
 		   	}
 	  	},  800));
@@ -283,25 +305,36 @@
 
 	  	$("#id_telegram_edit").keyup(delay(function (e) {
 		   	var id_telegram_edit = $('#id_telegram_edit').val();
+		   	var id_telegram_minLength = 9;
 		   	
 		   	if(id_telegram_edit != ''){
-			    $.ajax({
-			    url: "<?php echo base_url(); ?>users/cek_id_telegram_edit",
-			    method: "POST",
-			    data: {id_telegram_edit:id_telegram_edit},
-			    success: function(response){
-			    	if (response == 'taken') {
-			    		$('#id_telegram_edit_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> ID Telegram already exists</span></label>');
-			    		$('#sub_button').attr("disabled", true);
-			    	} 
-			    	else if (response == 'not_taken') {
-			    		$('#id_telegram_edit_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> ID Telegram is available</span></label>');
-			    		$('#sub_button').attr("disabled", false);
-			    	}
-			    }
-			    });
+		   		if(id_telegram_edit.length <= id_telegram_minLength){
+					$(".pesan-id_telegram_minlength_edit").css('display','block');
+					$('#id_telegram_edit_result').html('');
+					$('#sub_button_edit').attr("disabled", true);
+				}
+				if (id_telegram_edit.length >= id_telegram_minLength){
+				   	$.ajax({
+				    url: "<?php echo base_url(); ?>users/cek_id_telegram_edit",
+				    method: "POST",
+				    data: {id_telegram_edit:id_telegram_edit},
+					    success: function(response){
+					    	if (response == 'taken') {
+					    		$('#id_telegram_edit_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> ID Telegram already exists</span></label>');
+					    		$(".pesan-id_telegram_minlength_edit").hide();
+					    		$('#sub_button_edit').attr("disabled", true);
+					    	} 
+					    	else if (response == 'not_taken') {
+					    		$('#id_telegram_edit_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> ID Telegram is available</span></label>');
+					    		$(".pesan-id_telegram_minlength_edit").hide();
+					    		$('#sub_button_edit').attr("disabled", false);
+					    	}
+					    }
+				    });
+				}
 		   	}
 		   	else{
+		   		$(".pesan-id_telegram_minlength_edit").hide();
 		   		$('#id_telegram_edit_result').html('');
 		   	}
 	  	},  800));
@@ -580,6 +613,9 @@
 		$(".pesan-userfile1").hide();
 		$(".pesan-type_userfile").hide();
 		$(".pesan-type_userfile1").hide();
+		$(".pesan-no_hp_minlength_edit").hide();
+		$(".pesan-no_ktp_minlength_edit").hide();
+		$(".pesan-id_telegram_minlength_edit").hide();
 		$('#modal_form_edit_user').modal('show');
 		$('#sub_button').attr("disabled", false);
 
@@ -786,22 +822,22 @@
 	        allowedExtensions: ['jpg', 'png'],
 	        success: function() {
 	        	$(".pesan-type_userfile").hide();
-	            $('#sub_button').attr("disabled", false);
+	            $('#sub_button_edit').attr("disabled", false);
 	        },
 	        error: function() {
 	            $(".pesan-type_userfile").css('display','block');
-	            $('#sub_button').attr("disabled", true);
+	            $('#sub_button_edit').attr("disabled", true);
 	        }
 	    });
 	    $('#userfile1_edit').checkFileType({
 	        allowedExtensions: ['jpg', 'png'],
 	        success: function() {
 	        	$(".pesan-type_userfile1").hide();
-	            $('#sub_button').attr("disabled", false);
+	            $('#sub_button_edit').attr("disabled", false);
 	        },
 	        error: function() {
 	            $(".pesan-type_userfile1").css('display','block');
-	            $('#sub_button').attr("disabled", true);
+	            $('#sub_button_edit').attr("disabled", true);
 	        }
 	    });
 	});
@@ -984,6 +1020,7 @@
                                         </div>
                                         <span id="no_ktp_edit_result"></span>
 	        							<span class="pesan pesan-no_ktp">Please fill out ID Card Number field!</span>
+	        							<span class="pesan pesan-no_ktp_minlength_edit">Please enter at least 16 characters.</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-6 form-control-label">
@@ -1053,6 +1090,7 @@
                                         </div>
                                         <span id="no_hp_edit_result"></span>
 	        							<span class="pesan pesan-no_hp">Please fill out Phone Number field!</span>
+	        							<span class="pesan pesan-no_hp_minlength_edit">Please enter at least 11 characters.</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-6 form-control-label">
@@ -1077,6 +1115,7 @@
                                         </div>
                                         <span id="id_telegram_edit_result"></span>
 	        							<span class="pesan pesan-id_telegram">Please fill out ID Telegram field!</span>
+	        							<span class="pesan pesan-id_telegram_minlength_edit">Please enter at least 9 characters.</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-6 form-control-label">
@@ -1106,7 +1145,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" onclick="save_edit()" id="sub_button" class="btn btn-success waves-effect">SAVE</button>
+                                <button type="button" onclick="save_edit()" id="sub_button_edit" class="btn btn-success waves-effect">SAVE</button>
                                 <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                             </div>
                         </form>
