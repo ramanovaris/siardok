@@ -122,27 +122,37 @@
 	$(document).ready(function(){
         $("#no_ktp").keyup(delay(function (e) {
 		   	var no_ktp = $('#no_ktp').val();
-		   	
-		   	if(no_ktp != ''){
-			    $.ajax({
-			    url: "<?php echo base_url(); ?>users/cek_no_ktp",
-			    method: "POST",
-			    data: {no_ktp:no_ktp},
-			    success: function(response){
-			    	if (response == 'taken') {
-			    		$('#no_ktp_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> ID Card Number already exists</span></label>');
-			    		$('#sub_button').attr("disabled", true);
-			    	} 
-			    	else if (response == 'not_taken') {
-			    		$('#no_ktp_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> ID Card Number is available</span></label>');
-			    		$('#sub_button').attr("disabled", false);
-			    	}
-			    }
-			    });
-		   	}
-		   	else{
-		   		$('#no_ktp_result').html('');
-		   	}
+		   	var no_ktp_minLength = 16;
+		   		if(no_ktp != ''){
+		   			if(no_ktp.length <= no_ktp_minLength){
+					    $(".pesan-no_ktp_minlength").css('display','block');
+					    $('#no_ktp_result').html('');
+					    $('#sub_button').attr("disabled", true);
+				   	}
+				   	if (no_ktp.length >= no_ktp_minLength){
+				   		$.ajax({
+					    url: "<?php echo base_url(); ?>users/cek_no_ktp",
+					    method: "POST",
+					    data: {no_ktp:no_ktp},
+						    success: function(response){
+						    	if (response == 'taken') {
+						    		$('#no_ktp_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> ID Card Number already exists</span></label>');
+						    		$(".pesan-no_ktp_minlength").hide();
+						    		$('#sub_button').attr("disabled", true);
+						    	} 
+						    	else if (response == 'not_taken') {
+						    		$('#no_ktp_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> ID Card Number is available</span></label>');
+						    		$(".pesan-no_ktp_minlength").hide();
+						    		$('#sub_button').attr("disabled", false);
+						    	}
+						    }
+					    });
+				   	}
+			   	}
+			   	else{
+			   		$(".pesan-no_ktp_minlength").hide();
+			   		$('#no_ktp_result').html('');
+			   	}
 	  	},  800));
 
 	  	$("#no_ktp_edit").keyup(delay(function (e) {
@@ -174,25 +184,36 @@
 	$(document).ready(function(){
         $("#no_hp").keyup(delay(function (e) {
 		   	var no_hp = $('#no_hp').val();
-		   	
+		   	var no_hp_minLength = 11;
+
 		   	if(no_hp != ''){
-			    $.ajax({
-			    url: "<?php echo base_url(); ?>users/cek_no_hp",
-			    method: "POST",
-			    data: {no_hp:no_hp},
-			    success: function(response){
-			    	if (response == 'taken') {
-			    		$('#no_hp_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> Phone Number already exists</span></label>');
-			    		$('#sub_button').attr("disabled", true);
-			    	} 
-			    	else if (response == 'not_taken') {
-			    		$('#no_hp_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> Phone Number is available</span></label>');
-			    		$('#sub_button').attr("disabled", false);
-			    	}
-			    }
-			    });
+		   		if(no_hp.length <= no_hp_minLength){
+					$(".pesan-no_hp_minlength").css('display','block');
+					$('#no_hp_result').html('');
+					$('#sub_button').attr("disabled", true);
+				}
+				if (no_hp.length >= no_hp_minLength){
+				   	$.ajax({
+				    url: "<?php echo base_url(); ?>users/cek_no_hp",
+				    method: "POST",
+				    data: {no_hp:no_hp},
+					    success: function(response){
+					    	if (response == 'taken') {
+					    		$('#no_hp_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> Phone Number already exists</span></label>');
+					    		$(".pesan-no_hp_minlength").hide();
+					    		$('#sub_button').attr("disabled", true);
+					    	} 
+					    	else if (response == 'not_taken') {
+					    		$('#no_hp_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> Phone Number is available</span></label>');
+					    		$(".pesan-no_hp_minlength").hide();
+					    		$('#sub_button').attr("disabled", false);
+					    	}
+					    }
+				    });
+				}
 		   	}
 		   	else{
+		   		$(".pesan-no_hp_minlength").hide();
 		   		$('#no_hp_result').html('');
 		   	}
 	  	},  800));
@@ -226,25 +247,36 @@
 	$(document).ready(function(){
         $("#id_telegram").keyup(delay(function (e) {
 		   	var id_telegram = $('#id_telegram').val();
-		   	
+		   	var id_telegram_minLength = 9;
+
 		   	if(id_telegram != ''){
-			    $.ajax({
-			    url: "<?php echo base_url(); ?>users/cek_id_telegram",
-			    method: "POST",
-			    data: {id_telegram:id_telegram},
-			    success: function(response){
-			    	if (response == 'taken') {
-			    		$('#id_telegram_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> ID Telegram already exists</span></label>');
-			    		$('#sub_button').attr("disabled", true);
-			    	} 
-			    	else if (response == 'not_taken') {
-			    		$('#id_telegram_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> ID Telegram is available</span></label>');
-			    		$('#sub_button').attr("disabled", false);
-			    	}
-			    }
-			    });
+		   		if(id_telegram.length <= id_telegram_minLength){
+					$(".pesan-id_telegram_minlength").css('display','block');
+					$('#id_telegram_result').html('');
+					$('#sub_button').attr("disabled", true);
+				}
+				if (id_telegram.length >= id_telegram_minLength){
+				   	$.ajax({
+				    url: "<?php echo base_url(); ?>users/cek_id_telegram",
+				    method: "POST",
+				    data: {id_telegram:id_telegram},
+					    success: function(response){
+					    	if (response == 'taken') {
+					    		$('#id_telegram_result').html('<label class="text-danger"><span><i class="fa fa-times" aria-hidden="true"></i> ID Telegram already exists</span></label>');
+					    		$(".pesan-id_telegram_minlength").hide();
+					    		$('#sub_button').attr("disabled", true);
+					    	} 
+					    	else if (response == 'not_taken') {
+					    		$('#id_telegram_result').html('<label class="text-success"><span><i class="fa fa-check-circle-o" aria-hidden="true"></i> ID Telegram is available</span></label>');
+					    		$(".pesan-id_telegram_minlength").hide();
+					    		$('#sub_button').attr("disabled", false);
+					    	}
+					    }
+				    });
+				}
 		   	}
 		   	else{
+		   		$(".pesan-id_telegram_minlength").hide();
 		   		$('#id_telegram_result').html('');
 		   	}
 	  	},  800));
@@ -372,6 +404,9 @@
 		$(".pesan-userfile1").hide();
 		$(".pesan-type_userfile").hide();
 		$(".pesan-type_userfile1").hide();
+		$(".pesan-no_ktp_minlength").hide();
+		$(".pesan-no_hp_minlength").hide();
+		$(".pesan-id_telegram_minlength").hide();
 		$('#sub_button').attr("disabled", false);
 		$("#modal_form_user_title").text('Add User');
 		$('#modal_form_add_user').modal('show');
@@ -794,6 +829,7 @@
                                         </div>
                                         <span id="no_ktp_result"></span>
 	        							<span class="pesan pesan-no_ktp">Please fill out ID Card Number field!</span>
+	        							<span class="pesan pesan-no_ktp_minlength">Please enter at least 16 characters.</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-6 form-control-label">
@@ -863,6 +899,7 @@
                                         </div>
                                         <span id="no_hp_result"></span>
 	        							<span class="pesan pesan-no_hp">Please fill out Phone Number field!</span>
+	        							<span class="pesan pesan-no_hp_minlength">Please enter at least 11 characters.</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-6 form-control-label">
@@ -887,6 +924,7 @@
                                         </div>
                                         <span id="id_telegram_result"></span>
 	        							<span class="pesan pesan-id_telegram">Please fill out ID Telegram field!</span>
+	        							<span class="pesan pesan-id_telegram_minlength">Please enter at least 9 characters.</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-6 form-control-label">
