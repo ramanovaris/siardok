@@ -209,6 +209,15 @@
 					$this->documents_model->add_mapping_documents($data3);
 				}
 			}
+
+			$checked = $this->input->post('BroadcastId');
+			if (isset($checked) == 'on') {
+				$telegram['id_telegram'] = $this->documents_model->get_id_telegram($id);
+				$file_name = $this->documents_model->get_file_dokumen($id);
+				foreach ($telegram['id_telegram'] as $id => $id_telegram) {
+					$this->documents_model->send_message($id_telegram['id_telegram'], $file_name['file'], $file_name['name_document'], $file_name['no_document']);	
+				}
+			}
 	        echo json_encode(array("status" => TRUE));
 	    }
 
