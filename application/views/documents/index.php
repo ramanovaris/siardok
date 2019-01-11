@@ -221,7 +221,7 @@
 	function edit_document(id){
 	    save_method = 'update';
 	    $('#form')[0].reset(); // reset form on modals
-	    $("#BroadcastId").removeAttr('disabled');
+	    $("#BroadcastId").attr('disabled','disabled');
 	    $('#unit_result').html('');
 	    $(".pesan-no_dokumen").hide();
 		$(".pesan-nama_dokumen").hide();
@@ -252,6 +252,7 @@
 			        $('[name="txtLabelDokumen"]').val(data[i]['document_label']);
 			        var text = document.getElementById('txtLabelDokumen');
 		            if(text.value == "internal"){
+		            	$("#BroadcastId").removeAttr('disabled');
 		            	htmlString = "<option value='"+data[i]['id_unit']+"'>"+data[i]['nama_unit']+"</option>"
 		                $("#txtUnitDokumen").append(htmlString);
 		            }
