@@ -118,7 +118,7 @@
 		}
 
 		public function get_units_except($id){
-			$sql = "SELECT * FROM `tbl_units` WHERE id_unit NOT IN (SELECT id_unit FROM `tbl_units_member` WHERE id_user = ".$id.")";
+			$sql = "SELECT * FROM `tbl_units` WHERE id_unit NOT IN (SELECT id_unit FROM `tbl_units_member` WHERE id_user = ".$id.") AND status = 'Active'";
 			$query = $this->db->query($sql);
 			return $query->result();
 		}
