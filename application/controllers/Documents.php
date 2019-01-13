@@ -263,7 +263,7 @@
 	    }
 	    
 	    public function select_dynamic(){
-			$query = $this->db->get('tbl_units')->result();
+	    	$query = $this->documents_model->select_unit_by_status();
 			echo json_encode($query);
 	    }
 

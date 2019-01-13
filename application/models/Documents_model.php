@@ -304,4 +304,12 @@
 
 	    	return $query->row_array();
  		}
+
+ 		public function select_unit_by_status(){
+	    	$this->db->from('tbl_units');
+	    	$this->db->where('status', 'Active');
+	    	$query = $this->db->get();
+
+	    	return $query->result();
+ 		}
 	}
