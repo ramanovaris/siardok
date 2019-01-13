@@ -9,6 +9,7 @@
 		
 	    private function _get_datatables_query(){
 	        $this->db->from($this->table);
+	        $this->db->where('status', 'Active');
 	 
 	        $i = 0;
 	     
@@ -97,8 +98,12 @@
 		}
 
 		public function delete_by_id($id){
+			$data = array(
+				'status' => 'Inactive', 
+			);
+
 			$this->db->where('id_unit', $id);
-			$this->db->delete($this->table);
+			$this->db->update('tbl_units', $data);
 		}
 
 		public function get_member_by_id_unit($id){
