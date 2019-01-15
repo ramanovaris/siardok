@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2019 at 08:33 AM
+-- Generation Time: Jan 15, 2019 at 03:04 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -49,7 +49,7 @@ CREATE TABLE `tbl_dokumen` (
   `expired_date` date NOT NULL,
   `status` varchar(100) NOT NULL DEFAULT 'Aktif',
   `document_label` varchar(100) NOT NULL,
-  `upload_by` varchar(100) NOT NULL,
+  `upload_by` int(11) NOT NULL,
   `file` varchar(255) NOT NULL,
   `versi` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -59,22 +59,21 @@ CREATE TABLE `tbl_dokumen` (
 --
 
 INSERT INTO `tbl_dokumen` (`id_document`, `no_document`, `name_document`, `upload_date`, `document_date`, `expired_date`, `status`, `document_label`, `upload_by`, `file`, `versi`) VALUES
-(7, '34848', 'A', '2019-01-10 22:44:23', '2019-01-01', '2019-01-11', 'Aktif', 'umum', '53', '10012019_224423.jpg', '1.1'),
-(8, '4943', 'Z', '2019-01-10 22:45:00', '2019-01-02', '2019-01-12', 'Aktif', 'umum', '53', '10012019_224500.jpg', '1.2'),
-(9, '1434', 'B', '2019-01-10 22:45:34', '2019-01-03', '2019-01-13', 'Aktif', 'umum', '53', '10012019_224534.jpg', '2.1'),
-(10, '2434', 'D', '2019-01-10 22:49:20', '2019-01-04', '2019-01-14', 'Aktif', 'internal', '53', '10012019_224920.png', '2.2'),
-(11, '1323', 'Ba', '2019-01-10 23:04:05', '2019-01-11', '2019-01-17', 'Aktif', 'internal', '53', '10012019_230405.png', '1.2'),
-(12, '6934848', 'Cacaa', '2019-01-10 23:05:16', '2019-01-12', '0000-00-00', 'Aktif', 'internal', '53', '10012019_230516.jpg', '1.2'),
-(13, '5454', 'Jioj', '2019-01-10 23:19:22', '2019-01-12', '2019-01-24', 'Aktif', 'internal', '58', '10012019_231922.jpg', '3.1'),
-(14, '14343', 'Me', '2019-01-10 23:32:46', '2019-01-12', '2019-01-15', 'Aktif', 'rahasia', '53', '10012019_233246.jpg', '1.1'),
-(15, '83834', 'Secret', '2019-01-10 23:33:23', '2019-01-25', '2019-01-30', 'Aktif', 'rahasia', '53', '10012019_233323.jpg', '1.2'),
-(16, '232323', 'A', '2019-01-11 11:05:10', '2019-01-01', '2019-01-12', 'Aktif', 'internal', '52', '11012019_110510.xlsx', '1.1'),
-(17, '133434', 'dos', '2019-01-11 14:19:58', '2019-01-02', '2019-01-14', 'Aktif', 'internal', '52', '11012019_110550.pdf', '1.2'),
-(18, '83434', 'Me saja', '2019-01-11 11:08:28', '2019-01-01', '2019-01-12', 'Aktif', 'rahasia', '52', '11012019_110828.docx', '1.1'),
-(19, '34943', 'Afdfd', '2019-01-11 13:27:03', '2019-01-02', '2019-01-14', 'Aktif', 'rahasia', '52', '11012019_110905.xlsx', '2.1'),
-(20, '343', 'ff', '2019-01-11 11:11:38', '2019-01-09', '2019-01-17', 'Inactive', 'rahasia', '52', '11012019_111138.jpg', '12'),
-(21, '49544', 'umum dari super admin edit', '2019-01-11 15:44:58', '2019-01-10', '2019-01-08', 'Aktif', 'umum', '52', '11012019_133057.png', '1.1'),
-(22, '33434', 'coba broadcast edit ganti file', '2019-01-11 14:33:22', '2019-01-11', '0000-00-00', 'Aktif', 'internal', '52', '11012019_143322.jpg', '3');
+(7, '34848', 'A', '2019-01-10 22:44:23', '2019-01-01', '2019-01-11', 'Aktif', 'umum', 53, '10012019_224423.jpg', '1.1'),
+(8, '4943', 'Z', '2019-01-10 22:45:00', '2019-01-02', '2019-01-12', 'Aktif', 'umum', 53, '10012019_224500.jpg', '1.2'),
+(9, '1434', 'B', '2019-01-10 22:45:34', '2019-01-03', '2019-01-13', 'Aktif', 'umum', 53, '10012019_224534.jpg', '2.1'),
+(10, '2434', 'D', '2019-01-14 14:10:05', '2019-01-04', '2019-01-14', 'Aktif', 'internal', 53, '10012019_224920.png', '2.2'),
+(11, '1323', 'Ba', '2019-01-10 23:04:05', '2019-01-11', '2019-01-17', 'Aktif', 'internal', 53, '10012019_230405.png', '1.2'),
+(12, '6934848', 'Cacaa', '2019-01-10 23:05:16', '2019-01-12', '0000-00-00', 'Aktif', 'internal', 53, '10012019_230516.jpg', '1.2'),
+(15, '83834', 'Secret', '2019-01-10 23:33:23', '2019-01-25', '2019-01-30', 'Aktif', 'rahasia', 53, '10012019_233323.jpg', '1.2'),
+(16, '232323', 'A', '2019-01-11 11:05:10', '2019-01-01', '2019-01-12', 'Aktif', 'internal', 52, '11012019_110510.xlsx', '1.1'),
+(17, '133434', 'dos', '2019-01-11 14:19:58', '2019-01-02', '2019-01-14', 'Aktif', 'internal', 52, '11012019_110550.pdf', '1.2'),
+(18, '83434', 'Me saja', '2019-01-11 11:08:28', '2019-01-01', '2019-01-12', 'Aktif', 'rahasia', 52, '11012019_110828.docx', '1.1'),
+(19, '34943', 'Afdfd', '2019-01-11 13:27:03', '2019-01-02', '2019-01-14', 'Aktif', 'rahasia', 52, '11012019_110905.xlsx', '2.1'),
+(20, '343', 'ff', '2019-01-11 11:11:38', '2019-01-09', '2019-01-17', 'Inactive', 'rahasia', 52, '11012019_111138.jpg', '12'),
+(21, '49544', 'umum dari super admin edit', '2019-01-11 15:44:58', '2019-01-10', '2019-01-08', 'Aktif', 'umum', 52, '11012019_133057.png', '1.1'),
+(22, '33434', 'coba broadcast edit ganti file', '2019-01-11 14:33:22', '2019-01-11', '0000-00-00', 'Aktif', 'internal', 52, '11012019_143322.jpg', '3'),
+(23, '9596966', 'Haiii dff', '2019-01-15 09:50:22', '2019-01-19', '2019-01-25', 'Aktif', 'umum', 53, '15012019_095022.jpg', '1.1');
 
 -- --------------------------------------------------------
 
@@ -105,11 +104,8 @@ INSERT INTO `tbl_history_document` (`id_history`, `id_document`, `no_document`, 
 (8, 7, '34848', 'A', '2019-01-10 22:44:23', '2019-01-01', '2019-01-11', 'Aktif', 'umum', '53', '10012019_224423.jpg', '1.1'),
 (9, 8, '4943', 'Z', '2019-01-10 22:45:00', '2019-01-02', '2019-01-12', 'Aktif', 'umum', '53', '10012019_224500.jpg', '1.2'),
 (10, 9, '1434', 'B', '2019-01-10 22:45:34', '2019-01-03', '2019-01-13', 'Aktif', 'umum', '53', '10012019_224534.jpg', '2.1'),
-(11, 10, '2434', 'D', '2019-01-10 22:49:20', '2019-01-04', '2019-01-14', 'Aktif', 'internal', '53', '10012019_224920.png', '2.2'),
 (12, 11, '1323', 'Ba', '2019-01-10 23:04:05', '2019-01-11', '2019-01-17', 'Aktif', 'internal', '53', '10012019_230405.png', '1.2'),
 (13, 12, '6934848', 'Cacaa', '2019-01-10 23:05:16', '2019-01-12', '0000-00-00', 'Aktif', 'internal', '53', '10012019_230516.jpg', '1.2'),
-(14, 13, '5454', 'Jioj', '2019-01-10 23:19:22', '2019-01-12', '2019-01-24', 'Aktif', 'internal', '58', '10012019_231922.jpg', '3.1'),
-(15, 14, '14343', 'Me', '2019-01-10 23:32:46', '2019-01-12', '2019-01-15', 'Aktif', 'rahasia', '53', '10012019_233246.jpg', '1.1'),
 (16, 15, '83834', 'Secret', '2019-01-10 23:33:23', '2019-01-25', '2019-01-30', 'Aktif', 'rahasia', '53', '10012019_233323.jpg', '1.2'),
 (17, 16, '232323', 'A', '2019-01-11 11:05:10', '2019-01-01', '2019-01-12', 'Aktif', 'internal', '52', '11012019_110510.xlsx', '1.1'),
 (19, 18, '83434', 'Me saja', '2019-01-11 11:08:28', '2019-01-01', '2019-01-12', 'Aktif', 'rahasia', '52', '11012019_110828.docx', '1.1'),
@@ -119,7 +115,10 @@ INSERT INTO `tbl_history_document` (`id_history`, `id_document`, `no_document`, 
 (43, 22, '33434', 'coba', '2019-01-11 14:30:31', '2019-01-11', '0000-00-00', 'Aktif', 'internal', '52', '11012019_133330.xlsx', '3'),
 (45, 22, '33434', 'coba broadcast edit', '2019-01-11 14:32:43', '2019-01-11', '0000-00-00', 'Aktif', 'internal', '52', '11012019_143124.xlsx', '3'),
 (46, 22, '33434', 'coba broadcast edit ganti file', '2019-01-11 14:33:22', '2019-01-11', '0000-00-00', 'Aktif', 'internal', '52', '11012019_143322.jpg', '3'),
-(48, 21, '49544', 'umum dari super admin edit', '2019-01-11 15:44:58', '2019-01-10', '2019-01-08', 'Aktif', 'umum', '52', '11012019_133057.png', '1.1');
+(48, 21, '49544', 'umum dari super admin edit', '2019-01-11 15:44:58', '2019-01-10', '2019-01-08', 'Aktif', 'umum', '52', '11012019_133057.png', '1.1'),
+(49, 10, '2434', 'D', '2019-01-14 14:10:05', '2019-01-04', '2019-01-14', 'Aktif', 'internal', '53', '10012019_224920.png', '2.2'),
+(51, 23, '9596966', 'Haiii dff', '2019-01-15 09:45:46', '2019-01-19', '2019-01-25', 'Aktif', 'umum', '53', '15012019_094531.jpg', '1.1'),
+(52, 23, '9596966', 'Haiii dff', '2019-01-15 09:50:22', '2019-01-19', '2019-01-25', 'Aktif', 'umum', '53', '15012019_095022.jpg', '1.1');
 
 -- --------------------------------------------------------
 
@@ -133,13 +132,6 @@ CREATE TABLE `tbl_otp` (
   `otp` int(11) NOT NULL,
   `otp_expired` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_otp`
---
-
-INSERT INTO `tbl_otp` (`id_otp`, `id_user`, `otp`, `otp_expired`) VALUES
-(2, 53, 9839, '2019-01-11 02:36:50');
 
 -- --------------------------------------------------------
 
@@ -184,9 +176,6 @@ INSERT INTO `tbl_units_member` (`id_unit_member`, `id_unit`, `id_user`) VALUES
 (26, 2, 51),
 (27, 2, 53),
 (28, 2, 57),
-(29, 2, 59),
-(30, 2, 60),
-(31, 2, 61),
 (37, 3, 52),
 (40, 3, 53),
 (48, 1, 52);
@@ -208,20 +197,16 @@ CREATE TABLE `tbl_unit_document` (
 --
 
 INSERT INTO `tbl_unit_document` (`id_unit_document`, `id_document`, `id_unit`) VALUES
-(6, 10, 2),
-(7, 10, 3),
 (8, 11, 1),
 (9, 11, 2),
 (10, 11, 3),
 (11, 12, 1),
 (12, 12, 2),
 (13, 12, 3),
-(14, 13, 1),
-(15, 13, 2),
-(16, 13, 3),
 (17, 16, 3),
 (18, 17, 3),
-(22, 22, 3);
+(22, 22, 3),
+(23, 10, 3);
 
 -- --------------------------------------------------------
 
@@ -451,19 +436,10 @@ INSERT INTO `user` (`id_user`, `no_ktp`, `nama`, `instansi`, `posisi`, `foto_ktp
 (1, '6301030301980001', 'Muhammad Maulana', 'Teknik Informatika', 'Mahasiswa', 'Untitled.png', 'admin.jpg', '108930', '085389306776', '', 'Admin', 'Active'),
 (51, '2147483647', 'hafiz', 'daman', 'karyawan', '1544430269-484419.jpg', '1544430288-167998.jpg', '101180', '085326362', '198205822', 'User', 'Active'),
 (52, '13', 'Super Admin', 'Administrator', 'Super', 'unknown.jpg', 'unknown.jpg', '13', '13', '632141910', 'SuperAdmin', 'Active'),
-(53, '6301030301980002', 'Rama Novaris', 'Teknik Informatika', 'Mahasiswa', '1545293895-379388.jpg', '1545293915-884508.jpg', '2018', '08121818', '674976106', 'Admin', 'Active'),
-(54, '3123123', 'Mike', 'Poltek', 'Mahasiswa', '02012019_101327.jpg', '02012019_1013271.jpg', '1231231', '2313123', '12312', 'Admin', 'Inactive'),
-(55, '14', 'Leniansah', 'Poltekes', 'Mahasiswi', '02012019_102032.jpg', '02012019_1020321.jpg', '13', '12', '13', 'Admin', 'Inactive'),
+(53, '6301030301980002', 'Rama Novaris', 'Teknik Informatika', 'Mahasiswa', '14012019_163913.jpg', '14012019_1639131.jpg', '2018', '08121818', '674976106', 'Admin', 'Active'),
 (56, '630103030198000', 'Maulana', 'Politeknik', 'Mahasiswa', '1546586069-567415.jpg', '1546586075-149474.jpg', '713182', '08538930', '332', 'User', 'Active'),
 (57, '4343', 'tes user new', 'fd', 'fd', '10012019_090612.jpg', '10012019_0906121.jpg', '434', '3434', '444', 'User', 'Active'),
-(58, '39844', 'Haiii', 'ffmfdfffd', 'd', '10012019_204002.jpg', '10012019_2040021.jpg', '4544', '343433', '22', 'User', 'Inactive'),
-(59, '3232322222233344', 'A edit', 'A edit', 'A edit', '11012019_112715.png', '11012019_1127151.png', '3434343333', '3334344444444', '22323234440', 'User', 'Inactive'),
-(60, '3434344', 'Z', 'fkf', 'dffj', '10012019_204855.jpg', '10012019_2048551.jpg', '333', '545454', '2232', 'User', 'Active'),
-(61, '43434', 'B', 'ere', 'rerer', '10012019_205133.jpg', '10012019_2051331.jpg', '343434', '9394', '34344', 'User', 'Active'),
-(62, '232', '377474', '34347', '3434', '11012019_080921.jpg', '11012019_0809211.jpg', '11', '2323', '223323', 'User', 'Inactive'),
-(63, '232323233333333333333333', 'coba ktp', 'jfdjfj', 'fjdkf', '11012019_091016.jpg', '11012019_0910161.jpg', '43434', '3948904', '233', 'User', 'Inactive'),
-(64, '2323333333333333333', 'ff', 'ff', 'ff', '11012019_113449.jpg', '11012019_1134491.jpg', '2333', '3232334444444', '33334344444444', 'User', 'Active'),
-(65, '3434344344343434', 'user new', 'user new', 'user new', '11012019_113530.jpg', '11012019_1135301.jpg', '44', '333333333333', '44343434444', 'User', 'Active');
+(58, '9596545455555454445', 'User baru', 'User baru', 'User baru', '15012019_094443.jpg', '15012019_0944431.jpg', '3465656', '0865737475755', '3456475377', 'User', 'Active');
 
 --
 -- Indexes for dumped tables
@@ -479,7 +455,8 @@ ALTER TABLE `otp_user`
 -- Indexes for table `tbl_dokumen`
 --
 ALTER TABLE `tbl_dokumen`
-  ADD PRIMARY KEY (`id_document`);
+  ADD PRIMARY KEY (`id_document`),
+  ADD KEY `upload_by` (`upload_by`);
 
 --
 -- Indexes for table `tbl_history_document`
@@ -594,17 +571,17 @@ ALTER TABLE `otp_user`
 -- AUTO_INCREMENT for table `tbl_dokumen`
 --
 ALTER TABLE `tbl_dokumen`
-  MODIFY `id_document` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_document` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `tbl_history_document`
 --
 ALTER TABLE `tbl_history_document`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `tbl_otp`
 --
 ALTER TABLE `tbl_otp`
-  MODIFY `id_otp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_otp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_units`
 --
@@ -614,12 +591,12 @@ ALTER TABLE `tbl_units`
 -- AUTO_INCREMENT for table `tbl_units_member`
 --
 ALTER TABLE `tbl_units_member`
-  MODIFY `id_unit_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_unit_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `tbl_unit_document`
 --
 ALTER TABLE `tbl_unit_document`
-  MODIFY `id_unit_document` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_unit_document` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `tb_attachment_perizinan`
 --
@@ -669,10 +646,16 @@ ALTER TABLE `telegram`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `tbl_dokumen`
+--
+ALTER TABLE `tbl_dokumen`
+  ADD CONSTRAINT `tbl_dokumen_ibfk_1` FOREIGN KEY (`upload_by`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_history_document`
