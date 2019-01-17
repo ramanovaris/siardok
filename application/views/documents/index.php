@@ -422,7 +422,7 @@
 					  } 
 					  else if (/(pdf)$/ig.test(extension)) {
 					  	$('#modal_pdf').on('shown.bs.modal',function(){      //correct here use 'shown.bs.modal' event which comes in bootstrap3
-						  $(this).find('iframe').attr('src','https://docs.google.com/gview?url=https://siardok.000webhostapp.com/assets/upload/dokumen/'+data.file+'&embedded=true')
+						  $(this).find('iframe').attr('src','<?php echo site_url('assets/upload/dokumen') ;?>/'+data.file)
 						})
 						$('#modal_pdf_title').text("View Document");
 						$('#modal_pdf').modal('show'); // show bootstrap modal
@@ -594,7 +594,7 @@
 					  } 
 					  else if (/(pdf)$/ig.test(extension)) {
 					  	$('#modal_pdf').on('shown.bs.modal',function(){      //correct here use 'shown.bs.modal' event which comes in bootstrap3
-						  $(this).find('iframe').attr('src','https://docs.google.com/gview?url=https://siardok.000webhostapp.com/assets/upload/dokumen/'+data.file+'&embedded=true')
+						  $(this).find('iframe').attr('src','<?php echo site_url('assets/upload/dokumen') ;?>/'+data.file)
 						})
 						$('#modal_pdf_title').text("View Document");
 						$('#modal_pdf').modal('show'); // show bootstrap modal
