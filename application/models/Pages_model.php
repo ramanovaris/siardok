@@ -26,6 +26,7 @@
 	        $this->db->join('user', 'user.id_user=tbl_dokumen.upload_by');
 	        $this->db->join('tbl_unit_document', 'tbl_unit_document.id_document=tbl_dokumen.id_document');
 	        $this->db->where('tbl_dokumen.status', 'Aktif');
+	        $this->db->where('tbl_dokumen.document_label', 'internal');
 	        $this->db->group_start();
 	        $this->db->where('tbl_dokumen.expired_date >', $now);
 	        $this->db->or_where('tbl_dokumen.expired_date =', "00-00-00 00:00:00");
@@ -103,6 +104,7 @@
 	        $this->db->join('user', 'user.id_user=tbl_dokumen.upload_by');
 	        $this->db->join('tbl_unit_document', 'tbl_unit_document.id_document=tbl_dokumen.id_document');
 	        $this->db->where('tbl_dokumen.status', 'Aktif');
+	        $this->db->where('tbl_dokumen.document_label', 'internal');
 	        $this->db->group_start();
 	        $this->db->where('tbl_dokumen.expired_date >', $now);
 	        $this->db->or_where('tbl_dokumen.expired_date =', "00-00-00 00:00:00");
