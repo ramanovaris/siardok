@@ -169,7 +169,7 @@
                           } 
                           else if (/(pdf)$/ig.test(extension)) {
                             $('#modal_pdf').on('shown.bs.modal',function(){      //correct here use 'shown.bs.modal' event which comes in bootstrap3
-                              $(this).find('iframe').attr('src','<?php echo site_url('assets/upload/dokumen') ;?>/'+data.file)
+                              $(this).find('iframe').attr('src','https://docs.google.com/gview?url=https://dokumensiardok.000webhostapp.com/'+data.file+'&embedded=true')
                             })
                             $('#modal_pdf_title').text("View Document");
                             $('#modal_pdf').modal('show'); // show bootstrap modal
@@ -178,7 +178,7 @@
                           } 
                           else if (/(docx)$/ig.test(extension)) {
                             $('#modal_docx').on('shown.bs.modal',function(){      //correct here use 'shown.bs.modal' event which comes in bootstrap3
-                              $(this).find('iframe').attr('src','<?php echo site_url('assets/upload/dokumen') ;?>/'+data.file)
+                              $(this).find('iframe').attr('src','https://docs.google.com/gview?url=https://dokumensiardok.000webhostapp.com/'+data.file+'&embedded=true')
                             })
                             $('#modal_docx_title').text("View Document");
                             $('#modal_docx').modal('show'); // show bootstrap modal
@@ -187,7 +187,7 @@
                           } 
                           else if (/(doc)$/ig.test(extension)) {
                             $('#modal_doc').on('shown.bs.modal',function(){      //correct here use 'shown.bs.modal' event which comes in bootstrap3
-                              $(this).find('iframe').attr('src','<?php echo site_url('assets/upload/dokumen') ;?>/'+data.file)
+                              $(this).find('iframe').attr('src','https://docs.google.com/gview?url=https://dokumensiardok.000webhostapp.com/'+data.file+'&embedded=true')
                             })
                             $('#modal_doc_title').text("View Document");
                             $('#modal_doc').modal('show'); // show bootstrap modal
@@ -196,7 +196,7 @@
                           } 
                           else if (/(xlsx)$/ig.test(extension)) {
                             $('#modal_xlsx').on('shown.bs.modal',function(){      //correct here use 'shown.bs.modal' event which comes in bootstrap3
-                              $(this).find('iframe').attr('src','<?php echo site_url('assets/upload/dokumen') ;?>/'+data.file)
+                              $(this).find('iframe').attr('src','https://docs.google.com/gview?url=https://dokumensiardok.000webhostapp.com/'+data.file+'&embedded=true')
                             })
                             $('#modal_xlsx_title').text("View Document");
                             $('#modal_xlsx').modal('show'); // show bootstrap modal

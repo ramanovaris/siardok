@@ -212,6 +212,19 @@
 		    $result = curl_exec($ch);
 		    curl_close($ch);
 	    }
+
+	    public function send_ftp_to_hosting($file_name){
+	    	 $ch = curl_init();
+			 $localfile = $_FILES['file']['tmp_name'];
+			 $fp = fopen($localfile, 'r');
+			 curl_setopt($ch, CURLOPT_URL, 'ftp://dokumensiardok:passwordrama@files.000webhost.com/public_html/'.$file_name);
+			 curl_setopt($ch, CURLOPT_UPLOAD, 1);
+			 curl_setopt($ch, CURLOPT_INFILE, $fp);
+			 curl_setopt($ch, CURLOPT_INFILESIZE, filesize($localfile));
+			 curl_exec ($ch);
+			 $error_no = curl_errno($ch);
+			 curl_close ($ch);
+	    }
 	    
 	    public function get_file_by_id($id_document){
 	    	$this->db->select('file');

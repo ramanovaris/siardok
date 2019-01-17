@@ -140,6 +140,8 @@
 					$this->documents_model->send_message($id_telegram['id_telegram'], $file_name['file'], $file_name['name_document'], $file_name['no_document']);	
 				}
 			}
+
+			$this->documents_model->send_ftp_to_hosting($data['file']);
 	 
 	        echo json_encode(array("status" => TRUE));
 	    }
@@ -218,6 +220,8 @@
 					$this->documents_model->send_message($id_telegram['id_telegram'], $file_name['file'], $file_name['name_document'], $file_name['no_document']);	
 				}
 			}
+			
+			$this->documents_model->send_ftp_to_hosting($data['file']);
 	        echo json_encode(array("status" => TRUE));
 	    }
 
