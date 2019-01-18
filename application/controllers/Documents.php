@@ -183,7 +183,7 @@
 	            $upload = $this->_do_upload();
 	            $data['file'] = $upload;
 	            $data2['file'] = $upload;
-
+	            $this->documents_model->send_ftp_to_hosting($data['file']);
 	            $this->documents_model->save_history($data2);
 	        }
 	        else{
@@ -221,7 +221,6 @@
 				}
 			}
 			
-			$this->documents_model->send_ftp_to_hosting($data['file']);
 	        echo json_encode(array("status" => TRUE));
 	    }
 
