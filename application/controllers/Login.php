@@ -53,7 +53,7 @@
 					$this->otp_model->send_message($telegram['id_telegram'], $otp);
 					
 					// Set message
-					$this->session->set_flashdata('masukkan_otp', 'Silahkan Cek BOT Telegram Untuk Memasukkan OTP (SIMADOC BOT)');
+					$this->session->set_flashdata('masukkan_otp', 'Silahkan Cek BOT Telegram Untuk Memasukkan OTP');
 
 					redirect('login/verification');
 				}
