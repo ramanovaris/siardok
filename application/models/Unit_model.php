@@ -64,6 +64,7 @@
 	    public function count_all()
 	    {
 	        $this->db->from($this->table);
+	        $this->db->where('status', 'Active');
 	        return $this->db->count_all_results();
 	    }
 
